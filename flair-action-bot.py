@@ -95,9 +95,15 @@ r = praw.Reddit('flairactionbot', user_agent='randombot')
 gizz = r.subreddit('kgatlw').new(limit=50)
 for post in gizz:
 	if post.link_flair_text == 'Spotify':
-		removeWithReason(post, "Hey, this appears to be a Spotify-related topic that's been discussed elsewhere on the sub (e.g. ELTS or Quarters being added, or that some dude uploaded Poly reversed). Feel free to search the topic as the original post is likely still around!")
+		removeWithReason(post, "Hey, this appears to be a Spotify-related topic that's been discussed elsewhere on the sub (e.g. reversed Polygondwanaland or album visualizations). Feel free to search the topic as the original post is likely still around!")
+	if post.link_flair_text == 'BuySellRoot':
+		addAsHubWithMessage(post, "**Reminder to be wary of users that haven't been active on the subreddit, or accounts that are clearly farming for karma!**\n\nWe occasionally have scammers who are either banned from /r/KGATLW and thus cannot comment here, or brand-new accounts created by those users.", 'KGATLW', 'BuySell')
 	if post.link_flair_text == 'BuySell':
-		removeWithReason(post, "Hey, there's a dedicated sticky thread for buying / selling / trading - feel free to check that thread out!")
+		removeForHub(post, "Hey, there's usually a dedicated sticky thread for buying / selling / trading - I'll try to link it below:", 'KGATLW', 'BuySell')
+	if post.link_flair_text == 'KGRoot':
+		addAsHubWithoutMessage(post, 'KGATLW', 'KG')
+	if post.link_flair_text == 'KG':
+		removeForHub(post, "Hey, this has been mentioned either in the megathread or another thread in the last 24 hours - I'll try to link it below:", 'KGATLW', 'KG')
 
 duo = r.subreddit('duolingo').new(limit=50)
 for post in duo:
@@ -116,9 +122,9 @@ for post in duo:
 	if post.link_flair_text == 'Flair':
 		addMessage(post, "If you're looking to update your subreddit flair, you'll need to be on the desktop site (or use an app that supports flair). You can edit the text of your flair and include flag emojis that we've added to the subreddit.\n\nTo edit flair on old.reddit.com, click 'edit' in the sidebar below 'Show my flair on this subreddit.' To edit flair on new.reddit.com, click 'Community Options' in the sidebar, then click the pencil icon near 'User Flair Preview'.\n\nThe subreddit emojis are the two-letter [ISO 639-1](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) abbreviations. For example, the `:fr:` emoji is the French flag. Duolingo supports some constructed languages that do not have an ISO 639-1 code - in these cases, we use whatever Duolingo uses in their URLs for that language.")
 	if post.link_flair_text == 'Hearts-Root':
-		addAsHubWithMessage(post, "Hi, this was flagged as a post about the heart system - we get quite a high volume of these so other threads may be redirected here! Some people use [Duolingo classrooms](https://www.reddit.com/r/duolingo/comments/gs36bc/if_you_have_the_hearts_system_and_do_not_like_it/) to avoid the heart system entirely.", 'Duolingo', 'Hearts')
+		addAsHubWithMessage(post, "Hi, this was flagged as a post about the heart system - we get quite a high volume of these so other threads may be redirected here!\n\nDuolingo has a [FAQ about Hearts](https://support.duolingo.com/hc/en-us/articles/115002887326-What-are-Hearts-), as well as one [on how to restore them](https://support.duolingo.com/hc/en-us/articles/360048809311).", 'Duolingo', 'Hearts')
 	if post.link_flair_text == 'Hearts':
-		removeForHub(post, "Hi, this was flagged as a post about the heart system - we get quite a high volume of these, so please consider joining an already-existing thread.", 'Duolingo', 'Hearts')
+		removeForHub(post, "Hi, this was flagged as a post about the heart system - we get quite a high volume of these, so please consider joining an already-existing thread!", 'Duolingo', 'Hearts')
 		
 modular = r.subreddit('modular').new(limit=50)
 for post in modular:
