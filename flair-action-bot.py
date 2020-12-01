@@ -104,6 +104,10 @@ for post in gizz:
 		addAsHubWithoutMessage(post, 'KGATLW', 'KG')
 	if post.link_flair_text == 'KG':
 		removeForHub(post, "Hey, this has been mentioned either in the megathread or another thread in the last 24 hours - I'll try to link it below:", 'KGATLW', 'KG')
+	if post.link_flair_text == 'EOYRoot':
+		addAsHubWithoutMessage(post, 'KGATLW', 'EOY')
+	if post.link_flair_text == 'EOY':
+		removeForHub(post, "Hey, there have been some recent threads about these end-of-year summaries - to consolidate these posts I'll try to link one below:", 'KGATLW', 'EOY')
 
 duo = r.subreddit('duolingo').new(limit=50)
 for post in duo:
