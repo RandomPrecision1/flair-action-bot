@@ -129,6 +129,10 @@ for post in duo:
 		addAsHubWithMessage(post, "Hi, this was flagged as a post about the heart system - we get quite a high volume of these so other threads may be redirected here!\n\nDuolingo has a [FAQ about Hearts](https://support.duolingo.com/hc/en-us/articles/115002887326-What-are-Hearts-), as well as one [on how to restore them](https://support.duolingo.com/hc/en-us/articles/360048809311).", 'Duolingo', 'Hearts')
 	if post.link_flair_text == 'Hearts':
 		removeForHub(post, "Hi, this was flagged as a post about the heart system - we get quite a high volume of these, so please consider joining an already-existing thread!", 'Duolingo', 'Hearts')
+	if post.link_flair_text == 'YiRRoot':
+		addAsHubWithoutMessage(post, 'Duolingo', 'YiR')
+	if post.link_flair_text == 'YiR':
+		removeForHub(post, "Hi, this was detected as a Year-in-Review post - since many of these are being posted, there's a dedicated megathread here:", 'Duolingo', 'YiR')
 		
 modular = r.subreddit('modular').new(limit=50)
 for post in modular:
