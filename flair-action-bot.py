@@ -100,10 +100,10 @@ for post in gizz:
 		addAsHubWithMessage(post, "**Reminder to be wary of users that haven't been active on the subreddit, or accounts that are clearly farming for karma!**\n\nWe occasionally have scammers who are either banned from /r/KGATLW and thus cannot comment here, or brand-new accounts created by those users.", 'KGATLW', 'BuySell')
 	if post.link_flair_text == 'BuySell':
 		removeForHub(post, "Hey, there's usually a dedicated sticky thread for buying / selling / trading - I'll try to link it below:", 'KGATLW', 'BuySell')
-	if post.link_flair_text == 'KGRoot':
-		addAsHubWithoutMessage(post, 'KGATLW', 'KG')
-	if post.link_flair_text == 'KG':
-		removeForHub(post, "Hey, this has been mentioned either in the megathread or another thread in the last 24 hours - I'll try to link it below:", 'KGATLW', 'KG')
+	if post.link_flair_text == 'MegaRoot':
+		addAsHubWithoutMessage(post, 'KGATLW', 'Mega')
+	if post.link_flair_text == 'Mega':
+		removeForHub(post, "Hey, this topic seems to have an active megathread to consolidate the discussion a bit - I'll try to link it below:", 'KGATLW', 'Mega')
 	if post.link_flair_text == 'EOYRoot':
 		addAsHubWithoutMessage(post, 'KGATLW', 'EOY')
 	if post.link_flair_text == 'EOY':
